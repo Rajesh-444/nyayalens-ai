@@ -46,6 +46,18 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 - Unit tests for ranking, empty queries, citations, and triage behavior
 - A JSONL corpus format that can be replaced with verified source material
 
+## AI safety and guardrails
+
+| Control | Behavior |
+| --- | --- |
+| Prompt-injection filter | Blocks common attempts to override instructions or expose hidden prompts before retrieval |
+| Data minimization | Redacts email addresses, Indian phone numbers, and 12-digit identity-like values |
+| Input bounds | Rejects empty inputs and queries longer than 1,000 characters |
+| Explainability | Shows the matched urgency signals and cites every retrieved document |
+| High-stakes boundary | Uses a synthetic corpus, labels output as educational, and never presents a legal conclusion |
+
+Guardrails are deterministic and unit tested. They reduce obvious misuse, but they are not a substitute for authenticated sources, legal review, adversarial evaluation, or human escalation in a production system.
+
 ## Production roadmap
 
 - Hybrid BM25 + embedding search with a reranker
