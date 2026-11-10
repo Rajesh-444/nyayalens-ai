@@ -1,5 +1,10 @@
 # NyayaLens AI
 
+[![CI](https://github.com/Rajesh-444/nyayalens-ai/actions/workflows/ci.yml/badge.svg)](https://github.com/Rajesh-444/nyayalens-ai/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![NLP](https://img.shields.io/badge/NLP-5C3EE8?style=flat-square&logo=probot&logoColor=white)
+![Explainable AI](https://img.shields.io/badge/Explainable_AI-0F766E?style=flat-square)
+
 An explainable legal-document retrieval prototype that returns the most relevant passages, a transparent urgency signal, and citations for every result. It is intentionally local and deterministic, so reviewers can run and inspect the complete NLP pipeline without an API key.
 
 > Educational portfolio project only. The included corpus is synthetic and the output is not legal advice.
@@ -10,9 +15,14 @@ Many chatbot demos hide retrieval quality behind an LLM. NyayaLens makes the evi
 
 ## Architecture
 
-```text
-question -> tokenizer -> TF-IDF query vector -> cosine ranking -> cited passages
-       \-> transparent urgency rules -----------------------> triage label
+```mermaid
+flowchart LR
+    Q[User question] --> T[Tokenizer]
+    T --> V[TF-IDF query vector]
+    V --> R[Cosine ranking]
+    R --> E[Cited evidence]
+    Q --> U[Transparent urgency rules]
+    U --> L[Triage label]
 ```
 
 ## Try it
