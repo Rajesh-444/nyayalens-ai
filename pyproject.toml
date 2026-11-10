@@ -1,0 +1,9 @@
+[project]
+name = "nyayalens-ai"
+version = "0.1.0"
+description = "Explainable legal-document retrieval with cited evidence"
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 100
+
