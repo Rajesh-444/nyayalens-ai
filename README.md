@@ -38,7 +38,7 @@ PYTHONPATH=src python -m nyayalens.cli "My employer has not paid my final salary
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
-## What recruiters can inspect
+## Implementation highlights
 
 - A reusable `TfidfRetriever` with no hidden services or network calls
 - Ranked evidence with stable document IDs and relevance scores
